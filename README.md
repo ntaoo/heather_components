@@ -1,2 +1,8 @@
 # heather_components
-A set of material and not material components depends on "package:angular2_components".
+
+
+## FAQ
+
+* Why "heather"?
+
+It's just a random prefix.
