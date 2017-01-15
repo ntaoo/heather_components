@@ -6,6 +6,5 @@
 /// More dartdocs go here.
 library heather_components;
 
-export 'src/heather_components_base.dart';
+export 'src/components/blink/blink.dart';
 
-// TODO: Export any libraries intended for clients of this package.
