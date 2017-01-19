@@ -4,4 +4,4 @@
 # https://github.com/dart-lang/sdk/tree/master/pkg/analyzer#configuring-the-analyzer
 
 analyzer:
-  strong-mode: true
+  strong-mode: false
