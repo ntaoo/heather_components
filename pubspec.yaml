@@ -1,8 +1,8 @@
 name: heather_components
 description: A starting point for Dart libraries or applications.
 version: 0.0.1
-#author: ntaoo <email@example.com>
-#homepage: https://www.example.com
+author: ntaoo <ntaoo.g@gmail.com>
+homepage: https://github.com/ntaoo/heather_components
 
 environment:
   sdk: '>=1.21.0 <2.0.0'
