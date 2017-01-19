@@ -7,4 +7,5 @@
 library heather_components;
 
 export 'src/components/blink/blink.dart';
+export 'src/components/search/search.dart';
 
