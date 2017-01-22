@@ -9,7 +9,7 @@ import 'package:angular2_components/src/utils/async/async.dart'
     selector: 'heather-search',
     template: '''
         <div class="input-container" #inputContainer>
-          <material-input [label]="label" (keyup)="mdInputChange.add(\$event.target.value)"></material-input>
+          <material-input [label]="label" (keyup)="onKeyUp(\$event)"></material-input>
           <div class="close-button" (click)="close()" #closeButton>
             <glyph icon="close"></glyph>
           </div>
@@ -72,5 +72,10 @@ class SearchComponent {
     inputContainer.style.width = '0%';
     closeButton.style.visibility = 'hidden';
     openButton.style.cursor = 'pointer';
+  }
+  
+  void onKeyUp(KeyboardEvent event) {
+    dynamic input = event.target;
+    mdInputChange.add(input.value);
   }
 }
