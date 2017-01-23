@@ -9,7 +9,10 @@ import 'package:angular2_components/src/utils/async/async.dart'
     selector: 'heather-search',
     template: '''
         <div class="input-container" #inputContainer>
-          <material-input [label]="label" (keyup)="onKeyUp(\$event)"></material-input>
+          <material-input
+            [label]="label"
+            (inputKeyPress)="mdInputKeyPress.add(\$event)">
+          </material-input>
           <div class="close-button" (click)="close()" #closeButton>
             <glyph icon="close"></glyph>
           </div>
@@ -38,14 +41,14 @@ class SearchComponent {
     }
   }
 
-  final EventEmitter<String> mdInputChange = new EventEmitter<String>();
+  final EventEmitter<String> mdInputKeyPress = new EventEmitter<String>();
 
   /// Debounced output stream from user input.
   ///
   /// The millisecond is hardcoded to 250. I believe it's enough for search feature.
   /// TODO: Enable strongmode after type parameter can be added to [debounceStream].
   @Output()
-  Stream<String> get onChange => mdInputChange
+  Stream<String> get inputKeyPress => mdInputKeyPress
       .transform(debounceStream(const Duration(milliseconds: 250)));
 
   @ViewChild('inputContainer')
@@ -72,10 +75,5 @@ class SearchComponent {
     inputContainer.style.width = '0%';
     closeButton.style.visibility = 'hidden';
     openButton.style.cursor = 'pointer';
-  }
-  
-  void onKeyUp(KeyboardEvent event) {
-    dynamic input = event.target;
-    mdInputChange.add(input.value);
   }
 }
